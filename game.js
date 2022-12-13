@@ -1042,6 +1042,7 @@ async function make_move(chess, id, isAuto = true) {
 
     if (chess.player == "computer") {
         if (chess.term == 0) {
+            chess.term = 1;
             make_ai_move(chess);
         }
         else {
@@ -1066,7 +1067,6 @@ function make_ai_move(chess) {
     board.black_double = chess.black_double;
     board.white_double = chess.white_double;
     board.point = chess.point;
-    chess.term = 1;
     worker.postMessage(board);
     worker.onmessage = (moves) => {
         console.log(moves.data);
