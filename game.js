@@ -1077,11 +1077,13 @@ function make_ai_move(chess) {
 }
 
 function flip_player(chess, player) {
-    chess.player = player;
-    dom.flip_player(player);
+    if (chess.player != player) {
+        chess.player = player;
+        dom.flip_player(player);
 
-    if (player == "computer" && chess.term == 1) {
-        make_ai_move(chess);
+        if (player == "computer" && chess.term == 1) {
+            make_ai_move(chess);
+        }
     }
 
 }

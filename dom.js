@@ -304,28 +304,31 @@ function change_to_grab(event, chess) {
     }
 }
 function handle_click(event, chess) {
+
     event.preventDefault();
-    let target = event.target;
-    while (!target.id) {
-        target = target.parentNode;
-    }
-
-    const id = target.id;
-
-    if (!chess.shown_moves.includes(id) && !(chess.term==1 && chess.player=="computer")) {
-        game.clear_background(chess);
-        if ((chess.term == 0 && game.has_white_peice(chess.board, id)) || (chess.term == 1 && game.has_black_peice(chess.board, id))) {
-            game.set_blue_bg(chess, id);
-            game.show_moves(chess, id);
-            chess.last_clicked = id;
-            if (chess.shown_moves.length) {
-                drag_peice(event, target);
+    if(!(chess.term==1 && chess.player=="computer")){
+        let target = event.target;
+        while (!target.id) {
+            target = target.parentNode;
+        }
+        
+        const id = target.id;
+        
+        if (!chess.shown_moves.includes(id)) {
+            game.clear_background(chess);
+            if ((chess.term == 0 && game.has_white_peice(chess.board, id)) || (chess.term == 1 && game.has_black_peice(chess.board, id))) {
+                game.set_blue_bg(chess, id);
+                game.show_moves(chess, id);
+                chess.last_clicked = id;
+                if (chess.shown_moves.length) {
+                    drag_peice(event, target);
+                }
             }
         }
-    }
-    else {
-        game.clear_background(chess);
-        game.make_move(chess, id);
+        else {
+            game.clear_background(chess);
+            game.make_move(chess, id);
+        }
     }
 }
 function change_black_color(event) {
