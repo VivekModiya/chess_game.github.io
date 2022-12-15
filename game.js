@@ -655,7 +655,6 @@ function get_white_king_moves(board, id) {
     });
     return moves;
 }
-
 function get_black_king_moves(board, id) {
     let x = get_position(id)[0],
         y = get_position(id)[1];
@@ -679,7 +678,6 @@ function get_black_king_moves(board, id) {
     });
     return moves;
 }
-
 function get_legal_moves(chess, id, checked_cells) {
     let board = chess.board;
     let moves = [];
@@ -797,7 +795,6 @@ function get_legal_moves(chess, id, checked_cells) {
     }
     return moves;
 }
-
 function get_moves_count(chess, id, checked_cells) {
     let board = chess.board;
     let count = 0;
@@ -822,7 +819,6 @@ function get_moves_count(chess, id, checked_cells) {
     }
     return count;
 }
-
 function show_moves(chess, id) {
     let board = chess.board;
     let checked_cells;
@@ -852,7 +848,6 @@ function show_moves(chess, id) {
         chess.shown_moves.push(id);
     })
 }
-
 async function make_move(chess, id, isAuto = true) {
     let board = chess.board;
     let last_clicked = chess.last_clicked;
@@ -1053,7 +1048,6 @@ async function make_move(chess, id, isAuto = true) {
         chess.term = !chess.term;
     }
 }
-
 function make_ai_move(chess) {
 
     let worker = new Worker("./ai.js", { type: "module" });
@@ -1075,7 +1069,6 @@ function make_ai_move(chess) {
     }
 
 }
-
 function flip_player(chess, player) {
     if (chess.player != player) {
         chess.player = player;
@@ -1087,13 +1080,9 @@ function flip_player(chess, player) {
     }
 
 }
-
-
 function remove_from_captured(chess) {
     chess
 }
-
-
 export function Game() {
     this.get_position = get_position;
     this.peice_color = peice_color;

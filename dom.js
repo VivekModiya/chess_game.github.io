@@ -234,21 +234,28 @@ function drop_peice(event, chess) {
 
     let element = document.elementFromPoint(event.clientX, event.clientY);
 
+
     while (!element.id) {
         element = element.parentNode;
     }
 
-    element.classList.remove("highlight");
-    document.querySelector(".board").classList.remove("grabing") //////////////////////
-
-    const id = element.id;
-    if (chess.shown_moves.includes(id)) {
-        remove_peice(chess.last_clicked);
-        set_peice(id, src);
-        game.make_move(chess, id, false);
-        game.clear_background(chess);
+    if(document.querySelector(".board").contains(element)){
+        element.classList.remove("highlight");
+        document.querySelector(".board").classList.remove("grabing") //////////////////////
+    
+        const id = element.id;
+        if (chess.shown_moves.includes(id)) {
+            remove_peice(chess.last_clicked);
+            set_peice(id, src);
+            game.make_move(chess, id, false);
+            game.clear_background(chess);
+        }
+        else {
+            target.style.top = "";
+            target.style.left = "";
+        }
     }
-    else {
+    else{
         target.style.top = "";
         target.style.left = "";
     }
@@ -366,7 +373,6 @@ function add_to_captured(peice) {
         white.appendChild(element);
     }
 }
-
 function remove_from_captured(player) {
     if (player == "black") {
         let black = document.querySelector(".player1").children[1];
@@ -377,8 +383,6 @@ function remove_from_captured(player) {
         white.removeChild(white.lastChild);
     }
 }
-
-
 export function Dom() {
     this.real_peice = real_peice;
     this.set_blue_bg = set_blue_bg;
