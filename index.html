@@ -1,104 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="./style.css"
+            media="screen"
+        />
+        <title>Document</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./style.css" media="screen" />
-    <title>Document</title>
-</head>
-
-<body>
-
-    <div class="all">
-        <div class="status">
-            <div class="player1">
-                <p>WHITE : </p>
-                <div class="captured_peices">
+    <body>
+        <div class="all">
+            <div class="status">
+                <div class="player1">
+                    <p>WHITE :</p>
+                    <div class="captured_peices"></div>
+                </div>
+                <div id="check" hidden="hidden">
+                    <p>CHECK</p>
+                </div>
+                <div class="player2">
+                    <p>BLACK :</p>
+                    <div class="captured_peices"></div>
                 </div>
             </div>
-            <div id="check" hidden="hidden">
-                <p>CHECK</p>
+            <div class="border">
+                <div class="layer">
+                    <div class="pawn_promotion">
+                        <div class="promotion" id="rock">
+                            <img src="./pieces/white_rock.png" alt="" />
+                        </div>
+                        <div class="promotion" id="bishop">
+                            <img src="./pieces/white_bishop.png" alt="" />
+                        </div>
+                        <div class="promotion" id="knight">
+                            <img src="./pieces/white_knight.png" alt="" />
+                        </div>
+                        <div class="promotion" id="queen">
+                            <img src="./pieces/white_queen.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div id="animation">
+                    <img class="peices" hidden="hidden" />
+                </div>
+                <div class="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="board"></div>
             </div>
-            <div class="player2">
-                <p>BLACK : </p>
-                <div class="captured_peices">
+            <div class="options">
+                <div class="show_legal_moves">
+                    <input type="checkbox" id="show_moves" checked="true" />
+                    <span> Show Legal Moves </span>
+                </div>
+                <div class="color_picker">
+                    <div id="white_color">
+                        <span>White Color: </span>
+                        <input
+                            type="color"
+                            class="color_input"
+                            value="#FFFFFF"
+                        />
+                    </div>
+                    <div id="black_color">
+                        <span>Black Color: </span>
+                        <input
+                            type="color"
+                            class="color_input"
+                            value="#000000"
+                        />
+                    </div>
+                </div>
+                <div class="choose">
+                    <div class="computer">
+                        <span>COMPUTER</span>
+                    </div>
+                    <div class="friend yellow">
+                        <span>FRIEND</span>
+                    </div>
+                </div>
+                <div class="undo">
+                    <img src="./pieces/undo.png" alt="" class="undo_button" />
+                    <span>UNDO</span>
                 </div>
             </div>
         </div>
-        <div class="border">
-            <div class="layer">
-                <div class="pawn_promotion">
-                    <div class="promotion" id="rock">
-                        <img src="./pieces/white_rock.png" alt="">
-                    </div>
-                    <div class="promotion" id="bishop">
-                        <img src="./pieces/white_bishop.png" alt="">
-                    </div>
-                    <div class="promotion" id="knight">
-                        <img src="./pieces/white_knight.png" alt="">
-                    </div>
-                    <div class="promotion" id="queen">
-                        <img src="./pieces/white_queen.png" alt="">
-                    </div>
-                </div>
-            </div>
 
-            <div id="animation">
-                <img class="peices" hidden="hidden">
-            </div>
-            <div class="lds-spinner">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <div class="board">
-            </div>
-        </div>
-        <div class="options">
-            <div class="show_legal_moves">
-                <input type="checkbox" id="show_moves" checked="true">
-                <span>
-                    Show Legal Moves
-                </span>
-            </div>
-            <div class="color_picker">
-                <div id="white_color">
-                    <span>White Color: </span>
-                    <input type="color" class="color_input" value="#FFFFFF">
-                </div>
-                <div id="black_color">
-                    <span>Black Color: </span>
-                    <input type="color" class="color_input" value="#000000">
-                </div>
-            </div>
-            <div class="choose">
-                <div class="computer">
-                    <span>COMPUTER</span>
-                </div>
-                <div class="friend yellow">
-                    <span>FRIEND</span>
-                </div>
-            </div>
-            <div class="undo">
-                <img src="./pieces/undo.png" alt="" class="undo_button">
-                <span>UNDO</span>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- <div id="A1" class="white">
+        <!-- <div id="A1" class="white">
             <div class="peices"><img src="./pieces/black_rock.png"></div>
             <div class="move">
                 <div class="circle" hidden="hidden"></div>
@@ -110,12 +115,6 @@
             <div class="cross" hidden="hidden">❌</div>
         </div> -->
 
-    <script type="module" src="./main.js"></script>
-
-
-
-
-
-</body>
-
+        <script type="module" src="./main.js"></script>
+    </body>
 </html>
