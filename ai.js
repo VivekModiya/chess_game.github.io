@@ -630,6 +630,6 @@ function think_for_white(board, depth) {
 }
 
 onmessage = (board) => {
-    let moves = think_for_black(board.data, 3);
+    let moves = think_for_black(board.data, 5);
     postMessage(moves);
 };
